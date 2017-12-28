@@ -26,18 +26,10 @@ class Image:
             > mu: the expectancy of the gaussian noise
             > sigma: the variance of the gaussian noise
         """
+        # change the pixel value range from [0, 255] to [0.0, 1.0]
         self.normalize(current_min=0, current_max=255, target_min=0.0, target_max=1.0, target_type=np.float)
-        if type == 'gaussian' and False:
-            # generate a gaussian noise and apply it to the image
-            # set default values for mu and sigma if not given
-            if 'mu' not in kwargs:
-                kwargs['mu'] = 0.0
-            if 'sigma' not in kwargs:
-                kwargs['sigma'] = 0.1
-            # add the noise
-            noise = np.random.normal(loc=kwargs['mu'], scale=kwargs['sigma'], size=self.values.shape)
-            self.values += noise
 
+        # add/apply the noise
         self.values = random_noise(self.values, mode=type, seed=None, clip=True, **kwargs)
 
         # re-normalize (go back to [0, 255])
