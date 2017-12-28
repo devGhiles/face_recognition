@@ -65,7 +65,15 @@ class Image:
         self.values = 255 - self.values
 
     def rotate(self, degrees):
-        """Rotates the image around its center by the given degrees.
+        """ Rotates the image around its center by the given degrees.
         In-place method.
         """
         self.values = scipy.ndimage.rotate(self.values, 30, reshape=False)
+
+    def translate(self, drow, dcol):
+        """ Translates the images by rows and columns.
+        drow: rows translation
+        dcol: columns translation
+        In-place method.
+        """
+        self.values = scipy.ndimage.shift(self.values, (drow, dcol), mode='constant')
