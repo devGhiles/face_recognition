@@ -18,6 +18,9 @@ class Image:
         plt.imshow(self.values)
         plt.show()
 
+    def copy(self):
+        return Image(self.values.copy())
+
     def applyNoise(self, type='gaussian', **kwargs):
         """In-place method that applies a noise of given type
         and parameters on the image.
@@ -52,5 +55,10 @@ class Image:
         self.values = a * self.values + b
         self.values.astype(target_type)
 
-    def copy(self):
-        return Image(self.values.copy())
+    def reverseContrast(self):
+        """ Reverses the contrast of the image by doing 255 - pixel-value
+        for each pixel.
+        The pixel values must be in [0, 255].
+        In-place method.
+        """
+        self.values = 255 - self.values

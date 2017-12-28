@@ -14,10 +14,10 @@ clf = GaussianNB()  # a naive bayes classifier where the individual variables ar
 # since the number of images available is relatively low (400 images),
 # we'll use cross-validation to assess the performance of the face recognition system.
 data = data_reader.getAllData(shuffle=True)  # we shuffle the data so we can do Cross-Validation
-# uncomment the 3 lines below to inverse the contrast of some (30%) of the images
+# uncomment the 3 lines below to reverse the contrast of some (30%) of the images
 # for img in data[0]:
 #     if random.random() < 0.3:
-#         img.inverseContrast()
+#         img.reverseContrast()
 
 num_folds = 10
 fold_length = math.floor(len(data[0]) / num_folds)
@@ -36,10 +36,10 @@ for k in range(num_folds):
             test_data[i] = data[i][k * fold_length:(k + 1) * fold_length]
     train_data, test_data = tuple(train_data), tuple(test_data)
 
-    # inverse the contrast of all the test images
+    # reverse the contrast of all the test images
     for i, img in enumerate(test_data[0]):
         noisy_img = img.copy()
-        noisy_img.inverseContrast()
+        noisy_img.reverseContrast()
         test_data[0][i] = noisy_img
 
     # compute the eigenfaces and prepare the training data to train the classifier
