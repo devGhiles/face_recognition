@@ -38,9 +38,9 @@ for k in range(num_folds):
 
     # reverse the contrast of all the test images
     for i, img in enumerate(test_data[0]):
-        noisy_img = img.copy()
-        noisy_img.reverseContrast()
-        test_data[0][i] = noisy_img
+        reversed_img = img.copy()
+        reversed_img.reverseContrast()
+        test_data[0][i] = reversed_img
 
     # compute the eigenfaces and prepare the training data to train the classifier
     X_train = feature_extractor.fit_transform(train_data[0])  # computes eigenfaces and prepares training data
