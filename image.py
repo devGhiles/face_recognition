@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.util import random_noise
+import scipy.ndimage
 
 
 class Image:
@@ -62,3 +63,9 @@ class Image:
         In-place method.
         """
         self.values = 255 - self.values
+
+    def rotate(self, degrees):
+        """Rotates the image around its center by the given degrees.
+        In-place method.
+        """
+        self.values = scipy.ndimage.rotate(self.values, 30, reshape=False)
