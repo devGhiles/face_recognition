@@ -38,11 +38,11 @@ for k in range(num_folds):
     train_data, test_data = tuple(train_data), tuple(test_data)
 
     # rotate all the test images
-    # for i, img in enumerate(test_data[0]):
-    #     rotated_img = img.copy()
-    #     degrees = random.randint(0, 11) * 30  # [0°, 30°, 60°, 90°, ..., 330°]
-    #     rotated_img.rotate(degrees)
-    #     test_data[0][i] = rotated_img
+    for i, img in enumerate(test_data[0]):
+        rotated_img = img.copy()
+        degrees = random.randint(0, 11) * 30  # [0°, 30°, 60°, 90°, ..., 330°]
+        rotated_img.rotate(degrees)
+        test_data[0][i] = rotated_img
 
     # compute the eigenfaces and prepare the training data to train the classifier
     X_train = feature_extractor.fit_transform(train_data[0])  # computes eigenfaces and prepares training data
