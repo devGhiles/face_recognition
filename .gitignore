@@ -13,6 +13,7 @@
 *.tex.backup
 *-eps-converted-to.pdf
 *.kilepr
+*.tex.kate-swp
 
 
 # Experimental results
