@@ -13,7 +13,7 @@ class FeatureExtractor:
         # the average image
         self.avg = gammas.mean(axis=0)
 
-        # center the images
+        # substract the average from the images
         phis = gammas - self.avg
 
         # eigenvectors of L = phis . phis'
@@ -32,7 +32,7 @@ class FeatureExtractor:
         # transform the 2D images into 1D vectors
         gammas = np.array([img.values.reshape((-1,)) for img in images])
 
-        # center the images
+        # substract the average from the images
         phis = gammas - self.avg
 
         # return the coordinates in the facespace basis
