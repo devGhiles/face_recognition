@@ -1,3 +1,23 @@
+# LaTeX stuff
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.tex.backup
+*-eps-converted-to.pdf
+*.kilepr
+
+
+# Experimental results
+notes.txt
+
 # Pickle dumps
 *.pkl
 
