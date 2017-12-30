@@ -16,7 +16,7 @@ Les étapes pour trouver les eigenfaces sont :
     \item Transformer chaque image $I_i$, qui est en deux dimensions,
     en un vecteur $\Gamma_i$ à une dimension.
     \item Calculer le vecteur moyen $Y$ : $Y = \frac{1}{M} \sum_{i=1}^M \Gamma_i$.
-    \item Soustraire le vecteur moyen de chaque vecteur $\Gamma_i$ : $\phi_i = \Gamma_i - Y$.
+    \item Soustraire le vecteur moyen $Y$ de chaque vecteur $\Gamma_i$ : $\phi_i = \Gamma_i - Y$.
     \item Calculer $C$, la matrice variance-covariance des vecteurs $(\phi_i)_{i=1}^M$ :
     $C = A^TA$, où la ligne $i$ de $A$ est $\phi_i$.
     \item Calculer la matrice $u$, dont chaque colonne correspond à un vecteur
@@ -34,8 +34,19 @@ Le théorème de Bayes nous dit que :
     P(Y=y|X=x) = \frac{P(X=x|Y=y) \times P(Y=y)}{P(X=x)}
 \]
 Donc pour maximiser $P(Y=y|X=x)$, il suffit de maximiser $P(X=x|Y=y) \times P(Y=y)$
-(puisque $P(X=x)$ ne dépend pas de $y$ et nous cherchons à maximiser selon $y$.
+(puisque $P(X=x)$ ne dépend pas de $y$ et nous cherchons à maximiser selon $y$).
 On peut facilement estimer $P(Y=y)$ (par un simple comptage dans l'échantillon par exemple).
-Le problème réside dans le calcul de $P(X=x|Y=y)$.
+Le problème réside dans le calcul de $P(X=x|Y=y)$ sachant que $X$ est dans $\mathbb{R}^d$, 
+c.a.d. que $X = (X_1, X_2, ..., X_d)$ où $X_i \in \mathbb{R}$.
 
-Sachant que $X$ est dans $R^d$, c.a.d. que $X = (X_1, X_2, ..., X_d)$
+L'hypothèse ``naïve'' sur laquelle se base la classification bayésienne est de supposer
+les variables aléatoires $X_i$ indépendantes (d'où le nom ``bayésien naïf'' ou ``naïve bayes''
+en anglais). Quand on fait cette hypothèse, il devient plus facile de calculer $P(X=x|Y=y)$.
+En effet :
+\[
+    P(X=x|Y=y) = P(X_1=x_1, X_2=x_2, ..., X_d=x_d|Y=y) = \prod_{i=1}^d P(X_i=x_i|Y=y)
+\]
+Il suffit alors d'estimer $P(X_i|Y=y)$ pour chaque $i \in \{1, 2, ..., d\}$, ce qui est bien
+plus facile à faire, et requière beaucoup moins de paramètres à estimer que dans le cas où
+on devrait estimer $P(X|Y=y)$. Les hypothèses les plus couramment utilisées sur $P(X_i|Y=y)$
+sont que la distribution est gaussienne ou binomiale.
