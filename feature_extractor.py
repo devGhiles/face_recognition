@@ -24,7 +24,7 @@ class FeatureExtractor:
         self.u = phis.T.dot(v)
 
         # normalize u
-        self.u = (self.u - self.u.mean(axis=0)) / self.u.std(ddof=0)
+        self.u = (self.u - self.u.mean(axis=0)) / self.u.std(axis=0)
 
         return self
 
@@ -56,7 +56,7 @@ class FeatureExtractor:
         self.u = phis.T.dot(v)
         
         # normalize u
-        self.u = (self.u - self.u.mean(axis=0)) / self.u.std(ddof=0)
+        self.u = (self.u - self.u.mean(axis=0)) / self.u.std(axis=0)
 
         # return the coordinates in the facespace basis
         return phis.dot(self.u)
