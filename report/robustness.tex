@@ -163,7 +163,7 @@ du visage a été inversé).
 \subsection{Robustesse à la rotation}
 Nous entraînons le système sur des images droites (pas de rotation), puis nous testons sur des images
 retournées aléatoirement (d'un angle multiple de $30\degree$). Nous avons obtenu un taux de
-reconnaissances correctes de $2\%$. Donc à la base le système n'est pas robuste.
+reconnaissances correctes de $2\%$. Donc à la base le système n'est pas robuste à la rotation.
 
 Nous faisons une rotation aléatoire de toutes les images (entraînement et test) d'un angle
 multiple de $30\degree$ (un nouvel   angle de rotation est généré aléatoirement pour chaque
@@ -176,3 +176,15 @@ il faut introduire des images retournées dans les données d'entraînement.
 
 
 \subsection{Robustesse à la translation}
+Nous entraînons le système sur des images non translatées, puis nous testons sur des images
+translatées. Nous avons obtenu un taux de
+reconnaissances correctes de $7\%$. Donc à la base le système n'est pas robuste à la translation.
+
+Nous translatons $30\%$ des images d'entraînement et de test. 
+Le taux de reconnaissances correctes obtenu est de $43\%$, ce qui est loin
+du score obtenu sans translation ($68\%$) mais est une grande amélioration par rapport à
+quand on n'avait pas d'images translatées dans les images d'entraînement (il y a aussi
+des images de test non translatées ce qui fait monter le taux).
+
+Conclusion : le système à la base n'est pas robuste à la translation. Pour le rendre plus robuste,
+il faut introduire des images translatées dans les données d'entraînement.
