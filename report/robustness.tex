@@ -158,3 +158,21 @@ reconnaissances correctes obtenu est de $35\%$.
 Conclusion : le système n'est pas robuste à l'inversion de contraste (contrairement à l'etre
 humain qui en général peut reconnaître sans problème une personne dont le contraste de l'image
 du visage a été inversé).
+
+
+\subsection{Robustesse à la rotation}
+Nous entraînons le système sur des images droites (pas de rotation), puis nous testons sur des images
+retournées aléatoirement (d'un angle multiple de $30\degree$). Nous avons obtenu un taux de
+reconnaissances correctes de $2\%$. Donc à la base le système n'est pas robuste.
+
+Nous faisons une rotation aléatoire de toutes les images (entraînement et test) d'un angle
+multiple de $30\degree$ (un nouvel   angle de rotation est généré aléatoirement pour chaque
+image). Le taux de reconnaissances correctes obtenu est de $60\%$, ce qui est relativement
+proche du score obtenu sans rotation ($68\%$) et est une grande amélioration par rapport à
+quand on n'avait pas d'images retournées dans les images d'entraînement.
+
+Conclusion : le système à la base n'est pas robuste à la rotation. Pour le rendre plus robuste,
+il faut introduire des images retournées dans les données d'entraînement.
+
+
+\subsection{Robustesse à la translation}
