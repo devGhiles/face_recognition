@@ -1,8 +1,8 @@
 # Face recognition using eigenfaces and a naive bayes classifier
 
 ## Dependencies
-The program is written in Python 3.6.1, see the requirements.txt file
-for the required libraries. If you have pip installed, you can install
+The program is written in Python 3.6.1, but it should work for any version of Python 3.
+see the requirements.txt file for the required libraries. If you have pip installed, you can install
 all the required libraries by typing the following command in the command-line:
 ```bash
 $ pip install -r requirements.txt
@@ -22,9 +22,9 @@ saves them for future use. It also computes the coordinates on an image in the e
 * __main.py__: recognizes the face in a new image using the model learned by training.py.
 * __noise.py__: tests the robustness to noise of the system by applying different types of noises
 to test images (gaussian, poisson, speckle, and salt & pepper).
-* __contrast_inversion.py: tests the robustness to the contrast inversion of an image.
-* __rotation.py: tests the robustness to the rotation of an image.
-* __translation.py: test the robustness to the shifting of an image.
+* __contrast_inversion.py__: tests the robustness to the contrast inversion of an image.
+* __rotation.py__: tests the robustness to the rotation of an image.
+* __translation.py__: test the robustness to the shifting of an image.
 
 ## Generate the model
 The first step is to generate the model (which consists of training 
@@ -32,13 +32,14 @@ a naive bayes classifier). For that, you need to execute the file training.py:
 ```bash
 $ python training.py
 ```
+This will create two files: __clf.pkl__ and __feature_extractor.pkl__.
 
 ## Face recognition on a new image
 The main.py file is used for that:
 ```bash
 $ python main.py path/to/imagefile
 ```
-Any image format that workds with scipy.misc.imread will work (that includes
+Any image format that works with scipy.misc.imread will work (that includes
 '.jpg', '.png', and the more exotic '.pgm')
 
 ## Test the robustness of the system
@@ -68,4 +69,4 @@ $ python translation.py
 ## References
 This work was inspired by [this paper](http://ieeexplore.ieee.org/abstract/document/7951418/).
 
-We used the AT&T database of faces that you can find [here](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html)
+We used the AT&T database of faces that you can find [here](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html).
