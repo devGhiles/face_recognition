@@ -2,7 +2,7 @@
 
 ## Dependencies
 The program is written in Python 3.6.1, but it should work for any version of Python 3.
-see the requirements.txt file for the required libraries. If you have pip installed, you can install
+See the requirements.txt file for the required libraries. If you have pip installed, you can install
 all the required libraries by typing the following command in the command-line:
 ```bash
 $ pip install -r requirements.txt
