@@ -19,7 +19,7 @@
 \usepackage{array}
 \usepackage{textcomp}
 \usepackage{gensymb}
-\usepackage{apacite}
+\usepackage{url}
 \usepackage{booktabs}
 \usepackage{chngcntr}
 \usepackage{emptypage}
@@ -27,6 +27,7 @@
 
 
 \renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}.}
 
 
 \begin{document}
@@ -61,5 +62,6 @@
     \newpage
     \bibliographystyle{alpha}
     \bibliography{references}
+    \addcontentsline{toc}{section}{Bibliographie}
     
 \end{document}

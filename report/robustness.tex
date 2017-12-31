@@ -14,6 +14,8 @@ de reconnaissances correctes en fonction du nombre de personnes. On voit que...
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/robustesse_nombre_de_personnes}
+    \caption{Taux de reconnaissance en fonction du nombre de personnes.}
+    \label{fig:robustness:nombre_de_personnes}
 \end{figure}
 Malheureusement, comme il y a 40 personnes dans la base de données AT\&T, on ne 
 peut pas tester pour des valeurs supérieures à 40.
@@ -36,7 +38,7 @@ Pour mieux visualiser la chose, la figure \ref{fig:robustness:gaussien:exemple} 
 une image non bruitée et la même image avec des bruits gaussiens de différentes variances.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.45]{images/robustness_gaussien_exemple}
+    \includegraphics[scale=0.44]{images/robustness_gaussien_exemple}
     \caption{Exemple de bruits blancs gaussiens de différentes variances.}
     \label{fig:robustness:gaussien:exemple}
 \end{figure}
@@ -54,7 +56,7 @@ montre les taux de reconnaissance obtenus pour différentes variances.
     \includegraphics[scale=0.5]{images/robustesse_gaussien_tout}
     \caption{Taux de reconnaissance en fonction de la variance du bruit blanc gaussien
     (apprentissage sur des images bruitées).}
-    \label{fig:robustness:gaussien:touxt}
+    \label{fig:robustness:gaussien:tout}
 \end{figure}
 Les performances cette fois-ci sont inférieures à celles que nous avions obtenu lorsque nous
 avons utilisé uniquement des données non bruitées pour l'entraînement. Nous suspectons que 
@@ -91,7 +93,7 @@ Pour mieux visualiser la chose, la figure \ref{fig:robustness:speckle:exemple} m
 une image non bruitée et la même image avec des bruits speckle de différentes variances.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.45]{images/robustness_speckle_exemple}
+    \includegraphics[scale=0.44]{images/robustness_speckle_exemple}
     \caption{Exemple de bruits speckle de différentes variances.}
     \label{fig:robustness:speckle:exemple}
 \end{figure}
@@ -118,7 +120,7 @@ une image non bruitée et la même image avec des bruits poivre et sel affectant
 différents pourcentages de pixels.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.45]{images/robustness_sp_exemple}
+    \includegraphics[scale=0.44]{images/robustness_sp_exemple}
     \caption{Exemple de bruits poivre et sel affectant différents pourcentages de pixels
     (apprentissage sur des images non bruitées).}
     \label{fig:robustness:sp:exemple}
