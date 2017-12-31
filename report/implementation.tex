@@ -1,4 +1,4 @@
-\subsection{Base de données}
+\subsection{Base de données d'images}
 La base de données d'images que nous avons utilisé est la base AT\&T\\
 (lien : \url{http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html}).
 C'est une base de 400 images de visages de 40 personnes, avec 10 images 
@@ -19,7 +19,7 @@ Les images sont en niveaux de gris et ont une taille de $92 \times 112$.
 Étant donné que nous avons un nombre limité d'images, nous ne pouvons pas
 nous permettre de partitionner l'ensemble des 400 images en données 
 d’entraînement et de test ; la variance des résultats obtenus les rendrait
-inexploitable (à vrai dire on a essayé ça, le taux de classification correcte
+inexploitables (à vrai dire, on a essayé ça, le taux de reconnaissance
 varie entre $50\%$ et $80\%$ pour deux choix aléatoires des données d'entraînement
 et de test, ce qui est une marge trop large).
 
@@ -28,12 +28,12 @@ La validation croisée est une méthode d’estimation des performances d'un alg
 d'apprentissage automatique. On divise l'ensemble des images en $k$ échantillons, 
 puis on sélectionne un des $k$ échantillons comme ensemble de test et les $k-1$ autres
 échantillons comme ensemble d'apprentissage. On apprend le modèle sur
-l'ensemble d'apprentissage et on mesure le taux de classification correcte sur l'ensemble
+l'ensemble d'apprentissage et on mesure le taux de classifications correctes sur l'ensemble
 de test. On répète l'opération en sélectionnant un autre échantillon de test parmi les $k-1$
 échantillons qui n'ont pas encore été utilisés pour tester le modèle. 
 L'opération se répète ainsi $k$ fois pour de sorte que chaque sous-échantillon ait été utilisé exactement
-une fois comme ensemble de test. La moyenne des $k$ taux de classification correcte servira
-d'estimation finale du taux de classification correcte du système.
+une fois comme ensemble de test. La moyenne des $k$ taux de classifications correctes servira
+d'estimation finale du taux de classifications correctes du système.
 
 Dans notre cas, nous avons pris $k = 10$. Pour chaque personne,
 9 images d'entraînement et une de test pour chaque itération.

@@ -4,12 +4,12 @@ le bruit, l'inversion du contraste, la rotation et la translation.
 
 \subsection{Robustesse au nombre de personnes}
 Nous avons déjà dit lorsque nous avons présenté nos résultats que quand il y a
-40 personnes, le taux de reconnaissances correctes est de $68\%$, alors que quand
+40 personnes, le taux de reconnaissance est de $68\%$, alors que quand
 il y a 20 personnes, celui-ci est de $82\%$. Ce large écart nous pousse à étudier
 l'influence que peut avoir le nombre de personnes sur les performances du système.
 
 La figure \ref{fig:robustness:nombre_de_personnes} montre l'évolution du taux
-de reconnaissances correctes en fonction du nombre de personnes. On voit que...
+de reconnaissances correctes en fonction du nombre de personnes.
 
 \begin{figure}[H]
     \centering
@@ -17,6 +17,8 @@ de reconnaissances correctes en fonction du nombre de personnes. On voit que...
     \caption{Taux de reconnaissance en fonction du nombre de personnes.}
     \label{fig:robustness:nombre_de_personnes}
 \end{figure}
+On voit que ça suit une tendance baissière assez faible, restant dans la 
+marge des $70\%-80\%$.
 Malheureusement, comme il y a 40 personnes dans la base de données AT\&T, on ne 
 peut pas tester pour des valeurs supérieures à 40.
 
@@ -112,7 +114,8 @@ par le bruit poivre et sel.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/robustesse_sp_test}
-    \caption{Taux de reconnaissance en fonction du pourcentage des pixels bruités (bruit poivre et sel).}
+    \caption{Taux de reconnaissance en fonction du pourcentage des pixels bruités
+    (bruit poivre et sel, apprentissage sur des images non bruitées).}
     \label{fig:robustness:sp:test}
 \end{figure}
 Pour mieux visualiser la chose, la figure \ref{fig:robustness:sp:exemple} montre
@@ -121,8 +124,7 @@ différents pourcentages de pixels.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.44]{images/robustness_sp_exemple}
-    \caption{Exemple de bruits poivre et sel affectant différents pourcentages de pixels
-    (apprentissage sur des images non bruitées).}
+    \caption{Exemple de bruits poivre et sel affectant différents pourcentages de pixels.}
     \label{fig:robustness:sp:exemple}
 \end{figure}
 
@@ -157,7 +159,7 @@ correctes est de $0\%$! Vraiment pas robuste donc.
 Quand nous inversons le contraste de $30\%$ des images d'entraînement et de test, le taux de
 reconnaissances correctes obtenu est de $35\%$.
 
-Conclusion : le système n'est pas robuste à l'inversion de contraste (contrairement à l'etre
+Conclusion : le système n'est pas robuste à l'inversion de contraste (contrairement à l’être
 humain qui en général peut reconnaître sans problème une personne dont le contraste de l'image
 du visage a été inversé).
 
@@ -188,5 +190,5 @@ du score obtenu sans translation ($68\%$) mais est une grande amélioration par 
 quand on n'avait pas d'images translatées dans les images d'entraînement (il y a aussi
 des images de test non translatées ce qui fait monter le taux).
 
-Conclusion : le système à la base n'est pas robuste à la translation. Pour le rendre plus robuste,
-il faut introduire des images translatées dans les données d'entraînement.
+Conclusion : le système à la base n'est pas robuste à la translation. Une petite amélioration est
+peut-être possible en introduisant des images translatées dans les données d'entraînement.
