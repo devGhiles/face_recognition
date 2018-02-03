@@ -1,4 +1,7 @@
 # LaTeX stuff
+*.tex
+*.pdf
+images/*
 *.aux
 *.lof
 *.log
